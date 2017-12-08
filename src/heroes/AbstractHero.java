@@ -1,0 +1,16 @@
+package heroes;
+
+public abstract class AbstractHero {
+    private String name;
+    private String species;
+
+    AbstractHero(String name, String species){
+        this.name = name;
+        this.species = species;
+    }
+
+    public String sayName(){
+        return name;
+    }
+
+}
