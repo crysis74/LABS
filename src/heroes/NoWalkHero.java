@@ -5,9 +5,7 @@ public class NoWalkHero extends Visitor {
         super(name, species);
     }
     public Visitor getCarrier() {
-        Visitor carrier = new WalkHero("Носильщик","человек");
-        return carrier;
+        return new WalkHero("Носильщик","человек");
     }
-
 
 }

@@ -1,4 +1,4 @@
-package events;
+package heroes;
 
 import heroes.Visitor;
 
