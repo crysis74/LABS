@@ -53,5 +53,8 @@ public class Location {
     public void setWeather(Weather newWeather){
         weather = newWeather;
     }
+    public Weather setWeather(){
+        return weather;
+    }
 
 }
