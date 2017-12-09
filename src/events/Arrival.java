@@ -15,7 +15,6 @@ public class Arrival implements Event {
         this.visitor = visitor;
         this.carrier = carrier;
         this.weather = weather;
-        location.setWeather(weather);
     }
 
     public String tellStory(){
