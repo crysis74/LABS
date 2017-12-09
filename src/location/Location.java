@@ -14,8 +14,8 @@ public class Location {
         locatoinObjects = new ArrayList<>();
     }
 
-    public void build(String name, Boolean state, Weather weather){
-        Building building = new Building(name, state, weather);
+    public void build(String name, Boolean state){
+        Building building = new Building(name, state);
         locatoinObjects.add(building);
         buildingsCount ++;
     }
@@ -30,10 +30,9 @@ public class Location {
 
     private class Building {
 
-        private Building(String name, Boolean state, Weather weather){
+        private Building(String name, Boolean state){
             this.name = name;
             this.state=state;
-            this.weather=weather;
         }
 
         private String name;
@@ -41,14 +40,18 @@ public class Location {
         private Weather weather;
         public String toString(){
             if (state){
-                return name + " с " + weather + " погодой";
+                return name;
             }
             else{
-                return "разрушенный " + name + " с " + weather + " погодой";
+                return "разрушенный " + name;
             }
         }
     }
     public int getbuildingsCount(){
         return buildingsCount;
     }
+    public void setWeather(Weather newWeather){
+        weather = newWeather;
+    }
+
 }

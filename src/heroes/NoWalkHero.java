@@ -1,11 +1,19 @@
 package heroes;
 
 public class NoWalkHero extends Visitor {
-    protected NoWalkHero(String name, String species){
+    private String nameCarrier;
+    private String speciesCarrier;
+    private Visitor carrier;
+    public NoWalkHero(String name, String species, String nameCarrier, String speciesCarrier){
         super(name, species);
+        this.nameCarrier = nameCarrier;
+        this.speciesCarrier = speciesCarrier;
+    }
+    public void setCarrier(){
+        carrier = new WalkHero(nameCarrier,speciesCarrier);
     }
     public Visitor getCarrier() {
-        return new WalkHero("Носильщик","человек");
+        return carrier;
     }
 
 }
