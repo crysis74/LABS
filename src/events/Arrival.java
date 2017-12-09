@@ -19,10 +19,10 @@ public class Arrival implements Event {
 
     public String tellStory(){
         if (carrier == null) {
-            return visitor.toString() +" сам зашел на " + location.toString() + " c погодой " + weather;
+            return visitor.toString() +" сам зашел на " + location.toString() + " . Погода здесь была " + weather;
         }
         else {
-            return visitor.toString() + " заносится " + carrier.toString() + " на " + location.toString() + " c погодой " + weather;
+            return visitor.toString() + " заносится " + carrier.toString() + " на " + location.toString() + " . Погода здесь была " + weather;
         }
     }
 }

@@ -1,3 +1,4 @@
+import heroes.Inhabitant;
 import heroes.NoWalkHero;
 import heroes.Visitor;
 import heroes.WalkHero;
@@ -10,7 +11,8 @@ public class test {
         location.build("Дом", false);
         location.build("Сад", true);
         location.setWeather(Weather.FOG);
-        System.out.println(location.toString());
+        Inhabitant inhabitant = new Inhabitant("Мирный житель", "человек");
+        location.setInhabitant(inhabitant);
         Visitor snork = new WalkHero("Снорк", "Человек");
         Visitor mymi = new WalkHero("Муми-тролль", "Тролль");
         Visitor pantaloshka = new NoWalkHero("Панталошка", "Монстр", mymi);
