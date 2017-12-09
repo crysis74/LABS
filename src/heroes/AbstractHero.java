@@ -13,4 +13,7 @@ public abstract class AbstractHero {
         return name;
     }
 
+    public String getSpecies(){
+        return species;
+    }
 }
