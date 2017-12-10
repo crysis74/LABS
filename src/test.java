@@ -1,9 +1,8 @@
-import heroes.Inhabitant;
-import heroes.NoWalkHero;
-import heroes.Visitor;
-import heroes.WalkHero;
+import heroes.*;
 import location.Location;
 import location.Weather;
+
+import java.util.ArrayList;
 
 public class test {
     public static void main(String[] args) {
@@ -19,6 +18,11 @@ public class test {
         System.out.println(snork.visit(location).tellStory());
         System.out.println(mymi.visit(location).tellStory());
         System.out.println(pantaloshka.visit(location).tellStory());
-
+        ArrayList<String> dialog = new ArrayList<>();
+        dialog.add("ривет");
+        dialog.add("как дела ваще");
+        dialog.add("нормик, ы))");
+        System.out.println(snork.startDialog(mymi, dialog, Weather.FOG).tellStory());
+        System.out.println(((Actionable)snork).performAction(Actions.JUMP).tellStory());
     }
 }

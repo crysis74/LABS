@@ -6,7 +6,6 @@ import location.Weather;
 
 public abstract class Visitor extends AbstractHero {
 
-    private Weather weather;
     protected Visitor(String name, String species){
         super(name, species);
     }
@@ -15,8 +14,13 @@ public abstract class Visitor extends AbstractHero {
     }
 
     public abstract Visitor getCarrier();
-
+    public boolean equals(Visitor other){
+        return super.equals(other);
+    }
     public String toString(){
         return "Путешенственник по имени " + name + " расы " + species;
+    }
+    public int hashCode(){
+        return super.hashCode();
     }
 }

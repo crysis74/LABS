@@ -8,11 +8,13 @@ public class Location {
 
     private String name;
     private ArrayList<Building> locatoinObjects;
+    private int destroyedBildings;
     private int buildingsCount;
     private Weather weather;
     private Inhabitant inhabitant;
     public Location(String name){
         this.name = name;
+        destroyedBildings = 0;
         buildingsCount = 0;
         inhabitant = null;
         locatoinObjects = new ArrayList<>();
@@ -29,6 +31,9 @@ public class Location {
         Building building = new Building(name, state);
         locatoinObjects.add(building);
         buildingsCount ++;
+        if (state){
+            destroyedBildings++;
+        }
     }
 
     public String toString(){
@@ -55,7 +60,6 @@ public class Location {
 
         private String name;
         private Boolean state;
-        private Weather weather;
         public String toString(){
             if (state){
                 return name;
@@ -65,7 +69,7 @@ public class Location {
             }
         }
     }
-    public int getbuildingsCount(){
+    public int getBuildingsCount(){
         return buildingsCount;
     }
     public void setWeather(Weather newWeather){
@@ -74,5 +78,6 @@ public class Location {
     public Weather setWeather(){
         return weather;
     }
+    public int getDestroyedBildings(){return destroyedBildings;};
 
 }
