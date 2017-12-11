@@ -36,4 +36,8 @@ public class Dialog implements Event  {
         }
         return dialog.toString();
     }
+
+    public String toString(){
+        return "диалог между " + speaker1.sayName() + " и " + speaker2.sayName();
+    }
 }

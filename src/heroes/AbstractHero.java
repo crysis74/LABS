@@ -13,9 +13,6 @@ public abstract class AbstractHero {
         this.name = name;
         this.species = species;
     }
-   /* public Dialog speak () {
-        return new Dialog();
-    }*/
     public String sayName(){
         return name;
     }

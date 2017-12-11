@@ -20,13 +20,23 @@ public class Arrival implements Event {
     }
 
     public String tellStory(){
-        //TODO - scared
+        StringBuilder arrival = new StringBuilder();
         if (carrier == null) {
-            return visitor.toString() +" сам зашел на " + location.toString() + " . Погода здесь была " + weather;
+            arrival.append(visitor.toString() +" сам зашел на " + location.toString() + " . Погода здесь была " + weather + ". ");
         }
         else {
-            return visitor.toString() + " заносится " + carrier.toString() + " на " + location.toString() + " . Погода здесь была " + weather;
+            arrival.append(visitor.toString() + " заносится " + carrier.toString() + " на " + location.toString() +
+                    " . Погода здесь была " + weather + ". ");
         }
-
+        if(skared){
+            arrival.append(visitor.sayName() + " был очень испуган, ведь это место было практически полностью разрушено.");
+        }
+        else {
+            arrival.append(visitor.sayName() + " чувствовал себя уверенно, ведь это место внушало доверие");
+        }
+        return arrival.toString();
+    }
+    public String toString(){
+        return visitor.sayName() + " находиться на " + location.toString();
     }
 }
