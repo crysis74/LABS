@@ -13,7 +13,7 @@ public class WalkHero extends Visitor implements Actionable {
         return null;
     }
 
-    public Action performAction(Actions action){
+    public Action performAction(Actions action) {
         return new Action(this, action);
     }
 

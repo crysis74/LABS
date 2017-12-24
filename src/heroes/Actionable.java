@@ -1,5 +1,6 @@
 package heroes;
 
+import Mistakes.AbstractHeroException;
 import events.Action;
 
 public interface Actionable {

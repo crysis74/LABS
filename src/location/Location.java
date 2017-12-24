@@ -31,44 +31,44 @@ public class Location {
         Building building = new Building(name, state);
         locatoinObjects.add(building);
         buildingsCount ++;
-        if (state){
-            destroyedBildings++;
-        }
-    }
+                if (state){
+                destroyedBildings++;
+                }
+                }
 
-    public String toString(){
+public String toString(){
         StringBuilder result = new StringBuilder("Локация " + name + " содержит: ");
         for(Building building: locatoinObjects){
-            result.append(building.toString() + "; ");
+        result.append(building.toString() + "; ");
         }
 
         if(inhabitant != null) {
-            result.append(inhabitant.toString());
+        result.append(inhabitant.toString());
         }
         else {
-            result.append(" . без обитателей");
+        result.append(" . без обитателей");
         }
         return result.toString();
         }
 
-    private class Building {
+private class Building {
 
-        private Building(String name, Boolean state){
-            this.name = name;
-            this.state=state;
+    private Building(String name, Boolean state){
+        this.name = name;
+        this.state=state;
+    }
+
+    private String name;
+    private Boolean state;
+    public String toString(){
+        if (state){
+            return name;
         }
-
-        private String name;
-        private Boolean state;
-        public String toString(){
-            if (state){
-                return name;
-            }
-            else{
-                return "разрушенный " + name;
-            }
+        else{
+            return "разрушенный " + name;
         }
     }
+}
     public int getBuildingsCount(){
         return buildingsCount;
     }
