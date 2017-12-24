@@ -43,8 +43,8 @@ public class Location {
                 destroyedBildings++;
                 }
                 }
-public String showBuilding (Location location, int number){
-        return "В локации " + name + "на месте номера" + number + " находится здание " + getBuildingName(number);
+public Building showBuilding (int number){
+        return locatoinObjects.get(number);
 }
 public String toString(){
         StringBuilder result = new StringBuilder("Локация " + name + " содержит: ");
