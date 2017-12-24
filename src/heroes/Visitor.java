@@ -1,8 +1,8 @@
 package heroes;
 
 import events.Arrival;
+import events.Visit;
 import location.Location;
-import location.Weather;
 
 public abstract class Visitor extends AbstractHero {
 
@@ -11,6 +11,9 @@ public abstract class Visitor extends AbstractHero {
     }
     public Arrival visit(Location location){
         return new Arrival(location, this, getCarrier(), location.setWeather());
+    }
+    public Visit visitBuilding(Location location, int number){
+        return new Visit(location, number, this, getCarrier());
     }
 
     public abstract Visitor getCarrier();

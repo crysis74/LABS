@@ -27,6 +27,14 @@ public class Location {
         return inhabitant;
     }
 
+    public String getBuildingName(int number) {
+        return locatoinObjects.get(number).toString();
+    }
+    public Boolean getBuildingState(int number) {
+        return locatoinObjects.get(number).state;
+    }
+
+
     public void build(String name, Boolean state){
         Building building = new Building(name, state);
         locatoinObjects.add(building);
