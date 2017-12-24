@@ -10,11 +10,15 @@ public class test {
         location.build("Дом", false);
         location.build("Сад", true);
         location.setWeather(Weather.FOG);
-        Inhabitant inhabitant = new Inhabitant("Мирный житель", "человек");
+        Inhabitant inhabitant = new Inhabitant(" Муми-дол", "Тролль");
         location.setInhabitant(inhabitant);
         WalkHero snork = new WalkHero("Снорк", "Человек");
         WalkHero mymi = new WalkHero("Муми-тролль", "Тролль");
-        NoWalkHero pantaloshka = new NoWalkHero("Панталошка", "Монстр", mymi);
+        NoWalkHero pantaloshka = new NoWalkHero("Панталошка", "Монстр", mymi){
+            public String toString(){
+                return "Монстр по имени " + name + " расы " + species + " с большой пастью и тяжелейшей тушой";
+            }
+        };
         System.out.println(snork.visit(location).tellStory());
         System.out.println(mymi.visit(location).tellStory());
         System.out.println(pantaloshka.visit(location).tellStory());
