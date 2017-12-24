@@ -22,7 +22,10 @@ public abstract class AbstractHero {
     }
 
     public int hashCode() {
-        return name.hashCode() * (int)Math.pow(31, species.length()) + species.hashCode();
+        HashHandler hash = new HashHandler();
+        hash.addStringToHash(name);
+        hash.addStringToHash(species);
+        return hash.getHash();
     }
 
     public Dialog startDialog(AbstractHero otherSpeaker, ArrayList<String> dialogText, Weather weather) {
@@ -31,5 +34,15 @@ public abstract class AbstractHero {
 
     public boolean equals(AbstractHero other) {
         return name.equals(other.name) && species.equals(other.species);
+    }
+    protected static class HashHandler {
+        int hash = 0;
+        final static int p = 31;
+        public void  addStringToHash(String string){
+            hash = hash * (int)Math.pow(p, string.length()) + string.hashCode();
+        }
+        public int getHash(){
+            return hash;
+        }
     }
 }

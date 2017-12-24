@@ -15,6 +15,10 @@ public class NoWalkHero extends Visitor {
         return super.equals(other) && carrier.equals(other.carrier);
     }
     public int hashcode(){
-        return super.hashCode() * (int)Math.pow(31, carrier.name.length() + carrier.species.length()) +  carrier.hashCode();
+        HashHandler hash = new HashHandler();
+        hash.addStringToHash(name);
+        hash.addStringToHash(species);
+        hash.addStringToHash(carrier.name);
+        return hash.getHash();
     }
 }
