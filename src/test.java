@@ -1,9 +1,10 @@
-import Mistakes.DestroyedBuildingException;
+import Mistakes.AbstractHeroException;
 import heroes.*;
 import location.Location;
 import location.Weather;
 
 import java.util.ArrayList;
+import java.util.concurrent.AbstractExecutorService;
 
 public class test {
     public static void main(String[] args) {
@@ -38,7 +39,7 @@ public class test {
             System.out.println(mymi.startDialog(pantaloshka, dialog2, Weather.DARK).tellStory());
             System.out.println("Герои решили, что приклюений на сегодня достаточно, поэтому они решили завершить свое путешествие...");
         }
-        catch (DestroyedBuildingException ex){
+        catch (AbstractHeroException ex){
             System.out.println(ex);
         }
     }

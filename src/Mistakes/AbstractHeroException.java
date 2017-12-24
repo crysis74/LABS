@@ -2,7 +2,7 @@ package Mistakes;
 
 import heroes.Actions;
 
-public class AbstractHeroException extends Exception{
+public class AbstractHeroException extends RuntimeException{
     private Actions actions;
     public AbstractHeroException(Actions actoins){
         this.actions = actoins;

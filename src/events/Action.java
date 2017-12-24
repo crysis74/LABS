@@ -12,7 +12,6 @@ public class Action implements Event {
     }
 
     public String tellStory() {
-        try {
             String heroName = null;
             if (hero instanceof AbstractHero) {
                 heroName = ((AbstractHero) hero).sayName();
@@ -31,10 +30,6 @@ public class Action implements Event {
                 default:
                     return "...";
             }
-        }
-        catch (AbstractHeroException ex){
-            return ex.toString();
-        }
     }
 
     public String toString(){

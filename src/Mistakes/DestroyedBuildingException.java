@@ -2,7 +2,7 @@ package Mistakes;
 
 import location.Location;
 
-public class DestroyedBuildingException extends RuntimeException {
+public class DestroyedBuildingException extends Exception {
     private Location location;
     private int number;
     public DestroyedBuildingException(Location location, int number){
@@ -11,5 +11,6 @@ public class DestroyedBuildingException extends RuntimeException {
     }
     public String toString(){
         return "Ошибка входа в " + location.getBuildingName(number);
+
     }
 }

@@ -19,18 +19,23 @@ public class Visit implements Event {
             this.number = number;
         }
 
-        public String tellStory(){
-            StringBuilder visit = new StringBuilder();
-            if (location.getBuildingState(number)){
-                throw new DestroyedBuildingException(location , number);
+        public String tellStory() {
+            try {
+                StringBuilder visit = new StringBuilder();
+                if (location.getBuildingState(number)) {
+                    throw new DestroyedBuildingException(location, number);
+                }
+
+                if (carrier == null) {
+                    visit.append(visitor.toString() + " сам вошел в здание: " + location.getBuildingName(number) + " и решил осмотреться в поисках помощи.");
+                } else {
+                    visit.append(visitor.toString() + " заносится " + carrier.toString() + " в здание: " + location.getBuildingName(number));
+                }
+                return visit.toString();
             }
-            if (carrier == null) {
-                visit.append(visitor.toString() +" сам вошел в здание: " + location.getBuildingName(number) + " и решил осмотреться в поисках помощи.");
+            catch (DestroyedBuildingException ex){
+                return ex.toString();
             }
-            else {
-                visit.append(visitor.toString() + " заносится " + carrier.toString() + " в здание: " + location.getBuildingName(number));
-            }
-            return visit.toString();
         }
         public String toString(){
             return visitor.sayName() + " находиться в " + location.getBuildingName(number);
