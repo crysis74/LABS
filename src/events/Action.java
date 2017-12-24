@@ -15,7 +15,8 @@ public class Action implements Event {
             String heroName = null;
             if (hero instanceof AbstractHero) {
                 heroName = ((AbstractHero) hero).sayName();
-            } else {
+            }
+            else {
                 throw new AbstractHeroException(action);
             }
             switch (action) {

@@ -25,7 +25,7 @@ public class test {
             System.out.println(snork.visit(location).tellStory());
             System.out.println(mymi.visit(location).tellStory());
             System.out.println(pantaloshka.visit(location).tellStory());
-            System.out.println(snork.visitBuilding(location, 1).tellStory());
+            System.out.println(mymi.visitBuilding(location, 0).tellStory());
             ArrayList<String> dialog1 = new ArrayList<>();
             dialog1.add("Что мы здесь забыли?");
             dialog1.add("Я сам не знаю.");
@@ -42,5 +42,6 @@ public class test {
         catch (AbstractHeroException ex){
             System.out.println(ex);
         }
+
     }
 }

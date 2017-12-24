@@ -23,17 +23,19 @@ public class Dialog implements Event  {
             private AbstractHero speaker1;
             private AbstractHero speaker2;
             private Weather weather;
+            private StringBuilder dialog;
 
             DialogMaker(AbstractHero speaker1, AbstractHero speaker2,Weather weather) {
                 this.speaker1 = speaker1;
                 this.speaker2 = speaker2;
                 number = 0;
                 this.weather = weather;
+                dialog = new StringBuilder("Между " + speaker1.sayName() + " и " + speaker2.sayName() +
+                        " произошел следующий диалог: \n");
+
 
             }
 
-            StringBuilder dialog = new StringBuilder("Между " + speaker1.sayName() + " и " + speaker2.sayName() +
-                    " произошел следующий диалог: \n");
 
             public void showWeather() {
                 switch (weather) {
@@ -50,14 +52,14 @@ public class Dialog implements Event  {
 
             }
 
-            public void addPhraze(String phrase, int i) {
+            public void addPhraze(String phrase) {
 
                     if (number % 2 == 0) {
                         dialog.append(speaker1.sayName() + ": ");
                     } else {
                         dialog.append(speaker2.sayName() + ": ");
                     }
-                    dialog.append(dialogText.get(i) + "\n");
+                    dialog.append(dialogText.get(number) + "\n");
                     number++;
                 }
 
@@ -68,7 +70,7 @@ public class Dialog implements Event  {
         DialogMaker dia = new DialogMaker(speaker1, speaker2, weather);
         dia.showWeather();
         for (int i=0;i < dialogText.size(); i++){
-            dia.addPhraze(dialogText.get(i),i);
+            dia.addPhraze(dialogText.get(i));
         }
             return dia.getDialog();
         }
