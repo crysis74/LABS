@@ -2,12 +2,14 @@ package location;
 
 import heroes.Inhabitant;
 
-import java.util.ArrayList;
+import java.util.Collections;
+import java.util.TreeSet;
+import java.util.concurrent.ConcurrentSkipListSet;
 
-public class Location {
+public class Location implements Comparable<Location>{
 
     private String name;
-    private ArrayList<Building> locatoinObjects;
+    private TreeSet<Building> locatoinObjects;
     private int destroyedBildings;
     private int buildingsCount;
     private Weather weather;
@@ -17,35 +19,38 @@ public class Location {
         destroyedBildings = 0;
         buildingsCount = 0;
         inhabitant = null;
-        locatoinObjects = new ArrayList<>();
+        locatoinObjects = new TreeSet<>();
     }
-
+    public TreeSet<Building> getLocationObjects(){
+        return locatoinObjects;
+    }
     public void setInhabitant(Inhabitant newinhabitant){
         inhabitant = newinhabitant;
     }
     public Inhabitant getInhabitant(){
         return inhabitant;
     }
-
-    public String getBuildingName(int number) {
-        return locatoinObjects.get(number).toString();
+    public String getBuildingName(String buildingName) {
+        return buildingName;
     }
-    public Boolean getBuildingState(int number) {
-        return locatoinObjects.get(number).state;
+    public Boolean getBuildingState(String buildingName) {
+        for(Building e : locatoinObjects){
+            if(e.getName().equals(buildingName)){
+                return e.getState();
+            }
+        }
+        return false;
     }
 
-
-    public void build(String name, Boolean state){
-        Building building = new Building(name, state);
+    public void build(String name, Boolean state, String addres , String ownername){
+        Building building = new Building(name, state, addres, ownername);
         locatoinObjects.add(building);
         buildingsCount ++;
                 if (state){
                 destroyedBildings++;
                 }
                 }
-public Building showBuilding (int number){
-        return locatoinObjects.get(number);
-}
+
 public String toString(){
         StringBuilder result = new StringBuilder("Локация " + name + " содержит: ");
         for(Building building: locatoinObjects){
@@ -61,24 +66,10 @@ public String toString(){
         return result.toString();
         }
 
-private class Building {
-
-    private Building(String name, Boolean state){
-        this.name = name;
-        this.state=state;
+    public String getName() {
+        return name;
     }
 
-    private String name;
-    private Boolean state;
-    public String toString(){
-        if (state){
-            return name;
-        }
-        else{
-            return "разрушенный " + name;
-        }
-    }
-}
     public int getBuildingsCount(){
         return buildingsCount;
     }
@@ -89,5 +80,8 @@ private class Building {
         return weather;
     }
     public int getDestroyedBildings(){return destroyedBildings;};
+    public int compareTo(Location p){
 
+        return name.compareTo(p.getName());
+    }
 }

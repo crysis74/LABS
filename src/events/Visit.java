@@ -9,27 +9,27 @@ public class Visit implements Event {
         private Location location;
         private Visitor visitor;
         private Visitor carrier;
-        private int number;
+        private String name;
 
 
-        public Visit(Location location, int number, Visitor visitor, Visitor carrier){
+        public Visit(Location location,String name, Visitor visitor, Visitor carrier){
             this.location = location;
             this.visitor = visitor;
             this.carrier = carrier;
-            this.number = number;
+            this.name = name;
         }
 
         public String tellStory() {
             try {
                 StringBuilder visit = new StringBuilder();
-                if (location.getBuildingState(number)) {
-                    throw new DestroyedBuildingException(location, number);
+                if (location.getBuildingState(name)) {
+                    throw new DestroyedBuildingException(location, name);
                 }
 
                 if (carrier == null) {
-                    visit.append(visitor.toString() + " сам вошел в здание: " + location.getBuildingName(number) + " и решил осмотреться в поисках помощи.");
+                    visit.append(visitor.toString() + " сам вошел в здание: " + location.getBuildingName(name) + " и решил осмотреться в поисках помощи.");
                 } else {
-                    visit.append(visitor.toString() + " заносится " + carrier.toString() + " в здание: " + location.getBuildingName(number));
+                    visit.append(visitor.toString() + " заносится " + carrier.toString() + " в здание: " + location.getBuildingName(name));
                 }
                 return visit.toString();
             }
@@ -38,7 +38,7 @@ public class Visit implements Event {
             }
         }
         public String toString(){
-            return visitor.sayName() + " находиться в " + location.getBuildingName(number);
+            return visitor.sayName() + " находится в " + location.getBuildingName(name);
         }
     }
 

@@ -4,13 +4,13 @@ import location.Location;
 
 public class DestroyedBuildingException extends Exception {
     private Location location;
-    private int number;
-    public DestroyedBuildingException(Location location, int number){
+    private String name;
+    public DestroyedBuildingException(Location location, String name){
         this.location = location;
-        this.number = number;
+        this.name = name;
     }
     public String toString(){
-        return "Ошибка входа в " + location.getBuildingName(number);
+        return "Ошибка входа в " + location.getBuildingName(name);
 
     }
 }

@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="opencsv-4.1 (1)">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Downloads/opencsv-4.1 (1).jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/commons-lang3-3.7.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
